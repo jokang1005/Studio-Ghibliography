@@ -1,0 +1,72 @@
+  /* @font-face {
+    font-family: 'Ghibli-Bold';
+    src: url('webFonts/Ghibli-Bold/font.woff2') format('woff2'), url('webFonts/Ghibli-Bold/font.woff') format('woff');
+  } */
+  /* @font-face {
+    font-family: 'Ghibli';
+    src: url('webFonts/Ghibli/font.woff2') format('woff2'), url('webFonts/Ghibli/font.woff') format('woff');
+  } */
+  @import url('https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@400;500;600&display=swap');
+  *{
+      margin: 0 auto;
+      font-family: 'Baloo Tamma 2', cursive;
+  }
+
+  body {
+      font-family: 'Baloo Tamma 2', cursive;
+  }
+
+  #logo {
+      width: 20%;
+      /*I want to do a transition of it turning blue than white when you first enter the page... to be worked on later*/
+  }
+
+  header h1 {
+      display: flex;
+      justify-content: center;
+  }
+
+  form {
+      margin: 1em auto;
+      text-align: right;
+  }
+
+  .container {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50%;
+      border: solid 3px black
+  }
+  .container::before {
+      content: " ";
+      background-image: url("https://www.jrailpass.com/blog/wp-content/uploads/2020/04/studio-ghibli-theme-park.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      position: absolute;
+      opacity: 0.75;
+      z-index: 1;
+      
+  }
+
+  #title {
+    text-align: center;
+  }
+
+  #poster {
+      text-align: right;
+      /* width: 25% */
+      /* margin-top: -86px; */
+  }
+
+
+
+  #words {
+      justify-content: left;
+      width: 45%
+  }
+  .table {
+      padding: .5em;
+      font-size: 1.2em;
+  }
