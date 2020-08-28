@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project 1</title>
+    <title>Project 1 Draft</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script src="app.js" defer></script>
 
@@ -20,22 +21,31 @@
         <input type="button" value="SUBMIT">
     </form>
     <div class="container">
-
-        <!-- <img src="https://www.jrailpass.com/blog/wp-content/uploads/2020/04/studio-ghibli-theme-park.jpg" alt="Studio Ghibli Background" id="background-photo"> -->
-        
-        <div class="profile1" id="poster">
-            <div class ="table" id="photo"></div>
-            <div class ="table" id="title"></div>
+        <div class="left">
+            <div class="character-button" id="previous-button">
+                <span class="lnr lnr-chevron-left"></span>
+            </div>
+            <div class="character" class="abc"></div>
+            <div class="character-button" id="next-button">
+                <span class="lnr lnr-chevron-right"></span>
+            </div>
         </div>
-
-        <div class="profile2" id="words">
-            <div class ="table" id="description"></div>
-            <div class ="table" id="director"></div>
-            <div class ="table" id="producer"></div>
-            <div class ="table" id="rt_score"></div>
-            <div class ="table" id="characters"></div>
+        <div class="center1">
+            <div class="profile1" id="poster">
+                <div class ="table" id="photo"></div>
+                <div class ="table" id="title"></div>
+            </div>
         </div>
+        <div class="center2">
+            <div class="profile2" id="words">
+                <div class ="table" id="description"></div>
+                <div class ="table" id="director"></div>
+                <div class ="table" id="producer"></div>
+                <div class ="table" id="rt_score"></div>
+                <div class ="table" id="characters"></div>
+            </div>
+        </div>
+        <div class="right"></div>
     </div>
-
+    
 </body>
-</html>
