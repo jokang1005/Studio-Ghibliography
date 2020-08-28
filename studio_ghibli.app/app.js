@@ -1,3 +1,5 @@
+let num = []
+
 ////////////////////////////PHOTO CACHE/////////////////////////////
 const $princessMononokePhoto = $('<img src="https://upload.wikimedia.org/wikipedia/en/8/8c/Princess_Mononoke_Japanese_poster.png"/>')
 const $castleInTheSkyPhoto = $('<img src="https://www.reelviews.net/resources/img/posters/thumbs/castle_poster.jpg"/>')
@@ -35,16 +37,31 @@ const $moroPhoto = $('<img src="https://i.pinimg.com/originals/db/e3/bc/dbe3bc3a
 ///////////////////////////PONYO CHARACTERS//////////////////////////
 const $sosukePhoto = $('<img src="https://vignette.wikia.nocookie.net/p__/images/8/86/Sosuke_n%C3%A4rbilden.png/revision/latest?cb=20130227090701&path-prefix=protagonist"/>')
 
+/////////////////////PORCO ROSSO CHARACTERS//////////////////////////
+const $porcoRossoPhoto2 = $('<img src="https://cdn1.i-scmp.com/sites/default/files/styles/1200x800/public/images/methode/2016/08/04/f76c586a-546a-11e6-98ca-49b1c9e3ed10_1280x720.JPG?itok=TlS8Ale6"/>')
+
+///////////////////////////CASTLE IN THE SKY/////////////////////////
+const $lusheetaPhoto = $('<img src="https://static.wikia.nocookie.net/studio-ghibli/images/5/58/Castleinthesky-disneyscreencaps.com-1682.jpg/revision/latest/top-crop/width/360/height/450?cb=20200517192457"/>')
+const $dolaPhoto = $('<img src="https://vignette.wikia.nocookie.net/disney/images/c/c3/5688-2094236141.jpg/revision/latest?cb=20140915192650"/>')
+const $romskaPhoto = $('<img src="https://static.wikia.nocookie.net/studio-ghibli/images/d/d5/Muska.jpg/revision/latest?cb=20181031023656"/>')
+const $unclePomPhoto = $('<img src="https://static.wikia.nocookie.net/studio-ghibli/images/d/de/Uncle_Pom.png/revision/latest?cb=20180809131657"/>')
+const generalMuoroPhoto = $('<img src="https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/hostedimages/1547370964i/26909839.jpg"/>')
+// const duffiPhoto = $('<img src="https://static.wikia.nocookie.net/studio-ghibli/images/0/0a/Duffi.png/revision/latest?cb=2017050418304"/>')
+const charlesPhoto = $('<img src="https://static.wikia.nocookie.net/studio-ghibli/images/2/28/Charlies.jpg/revision/latest/scale-to-width-down/325?cb=20181031025246"/>')
+const louisPhoto = $('<img src="https://static.wikia.nocookie.net/studio-ghibli/images/8/80/Louis.jpg/revision/latest?cb=20181031025734"/>')
+
+
 //POSSIBLE CONST FOR DRY//
-const myFunc = () => {}
-    $('.character').empty()
-        for (const item in data) {
-        let $name = $(`<div id=${data[item].name} class="abc">`)
-        $($name).append(`<div>${data[item].name}</div>
-        <div>${data[item].gender}</div>
-        <div>${data[item].age}</div>`)
-        $('.character').append($name)
-        }
+// const myFunc = () => {}
+//     $('.character').empty()
+//         for (const item in data) {
+//         let $name = $(`<div id=${data[item].name} class="abc">`)
+//         $($name).append(`<div>${data[item].name}</div>
+//         <div>${data[item].gender}</div>
+//         <div>${data[item].age}</div>`)
+//         $('.character').append($name)
+//         }
+
 
 /////////////////////ON LOAD AJAX///////////////////////////////////
 $(window).on("load",()=> {
@@ -93,19 +110,28 @@ $(window).on("load",()=> {
 
 ////////////////////ON CLICK CAROUSEL///////////////////////
 
-let currentIndex = 0;
-let highestIndex = $('.abc').lengtßh - 1;
+
+
 $('#previous-button').on('click', () => {
     console.log ("CLICK!")
-    
+    $('.abc').eq(currentIndex).css('display', 'none')
+
+    if (currentIndex > 0) {
+        currentIndex--;
+    } else {
+        currentIndex = $('.abc').length-1;
+    }
+    $('.abc').eq(currentIndex).css('display', 'block')
 })
+// let highest = $('.abc').length-1
+let currentIndex = 0;
 
 $('#next-button').on('click',() => {
     console.log ("CLICK CLICK!")
 
     $('.abc').eq(currentIndex).css('display', 'none')
 
-    if (currentIndex < highestIndex) {
+    if (currentIndex < $('.abc').length-1) {
         currentIndex++;
     } else {
         currentIndex = 0;
@@ -175,21 +201,59 @@ $('#next-button').on('click',() => {
         
         /////////////////////ON SUBMIT CAROUSEL//////////////////////
         if ($text.toLowerCase() === "ponyo") {
-            $.ajax({
-                url: `https://ghibliapi.herokuapp.com/people`
+            num = [42]
+        } else if ($text.toLowerCase() === "porco rosso") {
+            num = [41]
+        } else if ($text.toLowerCase() === "castle in the sky") {
+            num = [1,2,3,4,5,6,7,8,9,10,11,40]
+        } else if ($text.toLowerCase() === "the cat returns") {
+            num = [34,35,36,37,38,39]
+        } else if ($text.toLowerCase() === "whisper of the heart") {
+            num = [34,38]
+        } else if ($text.toLowerCase() === "arrietty") {
+            num = [33]
+        } else if ($text.toLowerCase() === "my neighbor totoro") {
+            num = [23,24,25,26,27,28,29,30,31,32]
+        } else if ($text.toLowerCase() === "princess mononoke") {
+            num = [12,13,14,15,16,17,18,19,20,21,22]
+        } 
+         $.ajax({
+                url: `https://ghibliapi.herokuapp.com/people/`
             }).then (
                 (data) => {
                     $('.character').empty()
-                    for (const item in data) {
-                    let $name = $(`<div id=${data[item].name} class="abc">`)
-                    $($name).append(`<div>${data[item].name}</div>
-                    <div>${data[item].gender}</div>
-                    <div>${data[item].age}</div>`)
+                    for (let i = 0; i < num.length; i++) {
+                    let $name = $(`<div id=${data[num[i]].name} class="abc">`)
+                    $($name).append(`<div>${data[num[i]].name}</div>
+                    <div>${data[num[i]].gender}</div>
+                    <div>${data[num[i]].age}</div>`)
                     $('.character').append($name)
                     }
                 $('#Sosuke').prepend($sosukePhoto)
+                $('#Porco').prepend($porcoRossoPhoto2)
+                $('#Lusheeta').prepend($lusheetaPhoto)
+                
                 
                 })
-        }
+            // $.ajax({
+            //     url: `https://ghibliapi.herokuapp.com/people/?name=Sosuke`
+            // }).then (
+            //     (data) => {
+            //         $('.character').empty()
+            //         for (const item in data) {
+            //         let $name = $(`<div id=${data[item].name} class="abc">`)
+            //         $($name).append(`<div>${data[item].name}</div>
+            //         <div>${data[item].gender}</div>
+            //         <div>${data[item].age}</div>`)
+            //         $('.character').append($name)
+            //         }
+            //     $('#Sosuke').prepend($sosukePhoto)
+                
+            //     })
+        // } else if ($text.toLowerCase() === "porco rosso") {
+        //     $.ajax({
+        //         url: `https://ghibliapi.herokuapp.com/people/?name=`
+        //     })
+        // }
         
     })
