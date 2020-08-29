@@ -301,7 +301,7 @@ $('form').on('submit', (event) => {
         $('.director').append($hayao)
     }
 })
-
+ 
 ////////////////////////////GAME/////////////////////////////////////
 // const $right = $('.right')
 // const $box = $('.box')
