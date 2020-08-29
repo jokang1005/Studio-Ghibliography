@@ -9,11 +9,15 @@ header {
     background-color: aliceblue;
 }
 
+button {
+    cursor: pointer;
+}
+
 .container {
     display: flex;
     flex-direction: row;
     width: 100%;
-
+    /* background-color: whitesmoke; */
 
 }
 
@@ -76,8 +80,8 @@ form {
     margin: 25px;
     flex-direction: column;
 }
-.character img {
-    width: 200px;
+.abc img {
+    width: 250px;
     align-self: center;
 
 }
@@ -90,17 +94,21 @@ form {
 #previous-button {
     align-self: center;
     background: white;
+    color: black;
     padding: 10px;
     border-radius: 50%;
     text-align: center;
+    cursor: pointer;
 }
 
 #next-button {
     align-self: center;
     background: white;
+    color: black;
     padding: 10px;
     border-radius: 50%;
     text-align: center;
+    cursor: pointer;
 }
 
 .abc {
@@ -108,12 +116,57 @@ form {
 }
 
 .abc:first-of-type {
-    display: block
+    display: block;
 }
+
+.director {
+    display: flex;
+    align-self: center;
+    align-content: center;
+}
+.director img {
+    width: 60%;
+    border: solid 5px black;
+    box-shadow: navy 3px 1px;
+    border-radius: 2%;
+}
+
+/*GAME*/
+/* .square {
+    display: inline-flex;
+    flex-wrap: wrap;
+    width: 30px; height: 30px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.box {
+    width: 300px;
+    height: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    /* border: solid 3px black; */
+}
+
+/* .square {
+    border: solid 1px black;
+}
+
+#square99, #square94, #square85, #square76, #square67, #square58 {
+    border-bottom: solid 1px white;
+    border-top: solid 1px white;
+}
+
+#square67, #square68, #square69, #square70 {
+    border-left: solid 1px white;
+    border-right: solid 1px white;
+} 
+
+
 
 /*MEDIA QUERY*/
 
-@media (max-width: 1050px) {
+@media (max-width: 1150px) {
     .container {
         display: flex;
         flex-direction: column;
@@ -138,10 +191,22 @@ form {
     .center2 {
         width: 80%;
     }
+
+    /* .box {
+        width: 300px;
+        height: 300px;
+        
+    } */
 }
+
 
 @media (max-width: 1230px) {
     .character img {
         width: 150px;
+    }
+}
+@media (max-width: 1310px) {
+    .character img {
+        width: 200px;
     }
 }

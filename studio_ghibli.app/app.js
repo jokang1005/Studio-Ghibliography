@@ -41,7 +41,7 @@ const arr = [
     $('<img src="https://i.pinimg.com/originals/88/27/af/8827af5f693b19f0010b8adafa94a301.jpg"/>'),
     $('<img src="https://www.bluefinbrands.com/media/wysiwyg/brand-landing-pages/princess_mononoke.jpg"/>'),
     $('<img src="https://i.pinimg.com/originals/0c/1f/55/0c1f5599943c2690755c684108f73b7e.jpg"/>'),
-    $('<img src="https://static.wikia.nocookie.net/studio-ghibli/images/7/72/Jigo.jpg/revision/latest/top-crop/width/220/height/220?cb=20181011142443"/>'),
+    $('<img src="https://static.wikia.nocookie.net/studio-ghibli/images/7/79/Jigo_%282%29.jpg/revision/latest/scale-to-width-down/350?cb=20181011030826"/>'),
     $('<img src="https://statici.behindthevoiceactors.com/behindthevoiceactors/_img/chars/thumbs/kohroku-princess-mononoke-5_thumb.jpg"/>'),
     $('<img src="https://www.animecharactersdatabase.com/uploads/chars/thumbs/200/5688-2082147945.jpg"/>'),
     $('<img src="https://static.wikia.nocookie.net/studio-ghibli/images/8/83/Hii-sama.jpg/revision/latest?cb=20181011141901"/>'),
@@ -78,19 +78,6 @@ const arr = [
     $('<img src="https://vignette.wikia.nocookie.net/p__/images/8/86/Sosuke_n%C3%A4rbilden.png/revision/latest?cb=20130227090701&path-prefix=protagonist"/>')
 ]
 
-
-//POSSIBLE CONST FOR DRY//
-// const myFunc = () => {}
-//     $('.character').empty()
-//         for (const item in data) {
-//         let $name = $(`<div id=${data[item].name} class="abc">`)
-//         $($name).append(`<div>${data[item].name}</div>
-//         <div>${data[item].gender}</div>
-//         <div>${data[item].age}</div>`)
-//         $('.character').append($name)
-//         }
-
-
 /////////////////////ON LOAD AJAX///////////////////////////////////
 $(window).on("load",()=> {
         num = [12,13,14,15,16,17,18,19,20,21,22]
@@ -126,6 +113,7 @@ $(window).on("load",()=> {
         }
     )
     console.log ("window loaded")
+    // $('h1 img').css("background-color","blue").delay( 2000 ).fadeIn( 400 )
     })
 
 ////////////////////ON CLICK CAROUSEL///////////////////////
@@ -204,6 +192,8 @@ $('#next-button').on('click',() => {
             $('#photo').append($theTaleOfThePrincessKaguyaPhoto)
         } else if ($text.toLowerCase() === "when marnie was there") {
             $('#photo').append($whenMarnieWasTherePhoto)
+        } else if ($text.toLowerCase() === "princess mononoke") {
+            $('#photo').append($princessMononokePhoto)
         }
         $.ajax({
             url: `https://ghibliapi.herokuapp.com/films/?title=${$text}`
@@ -238,7 +228,6 @@ $('#next-button').on('click',() => {
             num = []
         }
 
-        
          $.ajax({
                 url: `https://ghibliapi.herokuapp.com/people/`
             }).then (
@@ -252,43 +241,77 @@ $('#next-button').on('click',() => {
                     $($name).prepend(arr[num[i]])
                     $('.character').append($name)
                     }
-                // $('#Sosuke').prepend($sosukePhoto)
-                // $('#Porco').prepend($porcoRossoPhoto2)
-                // $('#Lusheeta').prepend($lusheetaPhoto)
-                
-                // $('#Romska').prepend($romskaPhoto)
-                // $('#Uncle').prepend($unclePomPhoto)
-                // $('#General').prepend($generalMuoroPhoto)
-                // $('#Duffi').prepend($duffiPhoto)
-                // $('#Louis').prepend($louisPhoto)
-                // $('#Charles').prepend($charlesPhoto)
-                // $('#Henri').prepend($henryPhoto)
-                // $('#Motro').prepend($motroPhoto)
-                // $('#Okami').prepend($okamiPhoto)
-                // $('#Colonel').prepend($colonelMuskaPhoto)
-
-
-                
                 })
-            // $.ajax({
-            //     url: `https://ghibliapi.herokuapp.com/people/?name=Sosuke`
-            // }).then (
-            //     (data) => {
-            //         $('.character').empty()
-            //         for (const item in data) {
-            //         let $name = $(`<div id=${data[item].name} class="abc">`)
-            //         $($name).append(`<div>${data[item].name}</div>
-            //         <div>${data[item].gender}</div>
-            //         <div>${data[item].age}</div>`)
-            //         $('.character').append($name)
-            //         }
-            //     $('#Sosuke').prepend($sosukePhoto)
-                
-            //     })
-        // } else if ($text.toLowerCase() === "porco rosso") {
-        //     $.ajax({
-        //         url: `https://ghibliapi.herokuapp.com/people/?name=`
-        //     })
-        // }
-        
     })
+
+
+/////////////////////////RIGHT BOX///////////////////////////////////
+const $hayao = $('<img src="https://www.gstatic.com/tv/thumb/persons/156932/156932_v9_ba.jpg"/>')
+const $isao = $('<img src="https://www.gstatic.com/tv/thumb/persons/139971/139971_v9_ba.jpg"/>')
+const $kondo = $('<img src="https://i2.lisimg.com/201752/280full.jpg"/>')
+const $morita = $('<img src="https://cdn.myanimelist.net/images/voiceactors/1/35839.jpg"/>')
+const $goro = $('<img src="https://lh3.googleusercontent.com/proxy/4PB5Wn-fjZBsgBdGumhWcTn3lK1TSRjhdh21XT8z8HhrLRawNv4cBS8GcCq1nJ5IEqbCbnfBYU3hbIH8If7DhdXysQh2zY-SKNMJtOD5NevzmQfGGqk"/>')
+const $hiromasa = $('<img src="https://www.gstatic.com/tv/thumb/persons/610013/610013_v9_ba.jpg"/>')
+$('.director').append($hayao)
+////////////////////RIGHT BOX ON CLICK///////////////////////////////
+$('form').on('submit', (event) => {
+    event.preventDefault();
+    $('.director').empty()    
+    let $text = $('input[type="text"]').val()
+    // switch this to switch statement if time allots
+    if ($text.toLowerCase() === "castle in the sky") {
+        $('.director').append($hayao)
+    } else if ($text.toLowerCase() === "grave of the fireflies") {
+        $('.director').append($isao)
+    } else if ($text.toLowerCase() === "my neighbor totoro") {
+        $('.director').append($hayao)
+    } else if ($text.toLowerCase() === "kiki's delivery service") {
+        $('.director').append($hayao)
+    } else if ($text.toLowerCase() === "only yesterday") {
+        $('.director').append($isao)
+    } else if ($text.toLowerCase() === "porco rosso") {
+        $('.director').append($hayao)
+    } else if ($text.toLowerCase() === "pom poko") {
+        $('.director').append($isao)
+    } else if ($text.toLowerCase() === "whisper of the heart") {
+        $('.director').append($kondo)
+    } else if ($text.toLowerCase() === "my neighbors the yamadas") {
+        $('.director').append($isao)
+    } else if ($text.toLowerCase() === "spirited away") {
+        $('.director').append($hayao)
+    } else if ($text.toLowerCase() === "the cat returns") {
+        $('.director').append($morita)
+    } else if ($text.toLowerCase() === "howl's moving castle") {
+        $('.director').append($hayao)
+    } else if ($text.toLowerCase() === "tales from earthsea") {
+        $('.director').append($goro)
+    } else if ($text.toLowerCase() === "ponyo") {
+        $('.director').append($hayao)
+    } else if ($text.toLowerCase() === "arrietty") {
+        $('.director').append($hiromasa)
+    } else if ($text.toLowerCase() === "from up on poppy hill") {
+        $('.director').append($goro)
+    } else if ($text.toLowerCase() === "the wind rises") {
+        $('.director').append($hayao)
+    } else if ($text.toLowerCase() === "the tale of the princess kaguya") {
+        $('.director').append($isao)
+    } else if ($text.toLowerCase() === "when marnie was there") {
+        $('.director').append($hiromasa)
+    } else if ($text.toLowerCase() === "princess mononoke") {
+        $('.director').append($hayao)
+    }
+})
+
+////////////////////////////GAME/////////////////////////////////////
+// const $right = $('.right')
+// const $box = $('.box')
+
+
+// const makeSquares = () => {
+//     for (let i = 0; i < 100; i++) {
+//         const $square = $(`<div id= square${i}>`);
+//         $square.addClass('square')
+//         $($box).append($square)
+//     }
+// }
+// makeSquares();
